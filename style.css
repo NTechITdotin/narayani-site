@@ -14,7 +14,9 @@ header {
   border-bottom: 1px solid #222;
 }
 .logo {
-  height: 120px;
+  height: auto;
+  max-height: 120px;
+  width: auto;
 }
 nav a {
   color: #0ff;
