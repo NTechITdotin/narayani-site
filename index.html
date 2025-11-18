@@ -2,102 +2,1570 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Narayani Tech & IT Services</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <title>NTechIT Services | ERP Development & Cloud Consultation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="NTechIT Services, a Pune-based IT consulting business, provides ERP development & hosting, cloud consultation, IT infrastructure consulting, IT repairs, and modern React UI development at minimal cost for clients across the globe."
+  />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card-bg: #111827;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.2);
+      --accent-2: #ec4899;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.2);
+      --radius-xl: 1.5rem;
+      --radius-lg: 1rem;
+      --shadow-soft: 0 24px 80px rgba(15, 23, 42, 0.6);
+      --transition-fast: 180ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.6));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.5rem;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: conic-gradient(
+        from 220deg,
+        #4f46e5,
+        #22d3ee,
+        #ec4899,
+        #4f46e5
+      );
+      padding: 2px;
+      position: relative;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.8),
+        0 0 40px rgba(129, 140, 248, 0.4);
+    }
+
+    .brand-logo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: radial-gradient(circle at 30% 0, #1f2937, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .brand-tagline {
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 2px;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #4f46e5, #22d3ee);
+      transition: width 160ms ease-out;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-btn {
+      font-size: 0.78rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 140, 248, 0.4);
+      background: radial-gradient(circle at 0 0, rgba(129, 140, 248, 0.35), transparent),
+        rgba(15, 23, 42, 0.9);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: transform 120ms ease-out, box-shadow 120ms ease-out,
+        background 120ms ease-out;
+    }
+
+    .nav-btn span {
+      font-size: 0.9rem;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+      background: radial-gradient(circle at 100% 0, rgba(56, 189, 248, 0.4), transparent),
+        rgba(15, 23, 42, 0.95);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.35rem;
+    }
+
+    .nav-toggle-line {
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      margin: 4px 0;
+      transition: transform 150ms ease-out, opacity 150ms ease-out;
+    }
+
+    .nav-links-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding: 0.75rem 1.5rem 1.1rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.25);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), #020617);
+    }
+
+    .nav-links-mobile a {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .nav-links-mobile a.active {
+      color: var(--text);
+    }
+
+    /* ================= HERO ================= */
+
+    main {
+      padding-top: 1.8rem;
+    }
+
+    .hero {
+      padding: 3.5rem 0 4.5rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(94, 234, 212, 0.4);
+      background: radial-gradient(circle at 0 0, rgba(45, 212, 191, 0.24), transparent),
+        rgba(15, 23, 42, 0.86);
+      color: #a5f3fc;
+      margin-bottom: 0.9rem;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(22, 163, 74, 0.9);
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 4vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span.accent {
+      background: linear-gradient(120deg, #60a5fa, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.9rem;
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.88rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 120ms ease-out, box-shadow 120ms ease-out,
+        background 120ms ease-out, border-color 120ms ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      box-shadow: 0 18px 45px rgba(56, 189, 248, 0.45);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 25px 60px rgba(56, 189, 248, 0.7);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.8);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.95);
+      transform: translateY(-1px);
+      border-color: rgba(148, 163, 184, 0.8);
+    }
+
+    .btn-icon {
+      font-size: 1.1rem;
+      transform: translateY(1px);
+    }
+
+    /* Hero right / visual */
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: -18%;
+      background:
+        radial-gradient(circle at 0 30%, rgba(129, 140, 248, 0.4), transparent 55%),
+        radial-gradient(circle at 110% 30%, rgba(45, 212, 191, 0.45), transparent 55%),
+        radial-gradient(circle at 50% 120%, rgba(236, 72, 153, 0.35), transparent 56%);
+      opacity: 0.6;
+      filter: blur(4px);
+      z-index: -1;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 0 0, rgba(129, 140, 248, 0.35), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(56, 189, 248, 0.25), transparent 55%),
+        #020617;
+      padding: 1.3rem 1.3rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .hero-card-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #22d3ee;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.9);
+    }
+
+    .hero-card-env {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--muted);
+    }
+
+    .hero-card-body {
+      font-family: "JetBrains Mono", ui-monospace, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(15, 23, 42, 0.95);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .code-line {
+      opacity: 0.72;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0.25rem;
+    }
+
+    .code-line strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .code-key {
+      color: #60a5fa;
+    }
+
+    .code-string {
+      color: #22c55e;
+    }
+
+    .code-comment {
+      color: #6b7280;
+      font-style: italic;
+    }
+
+    .code-number {
+      color: #facc15;
+    }
+
+    .hero-card-badges {
+      margin-top: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .hero-badge {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: -40%;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.35);
+      opacity: 0.5;
+      transform-origin: center;
+      animation: orbit 22s linear infinite;
+    }
+
+    .hero-orbit-dot {
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #f97316;
+      top: 12%;
+      right: 14%;
+      box-shadow: 0 0 18px rgba(249, 115, 22, 0.85);
+    }
+
+    @keyframes orbit {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ================= SECTIONS ================= */
+
+    section {
+      padding: 3rem 0 3.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .section-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a5b4fc;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    /* ================= SERVICES ================= */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.35rem;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 0 0, rgba(129, 140, 248, 0.18), transparent 70%),
+        var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      padding: 1.1rem 1.1rem 1.25rem;
+      box-shadow: 0 16px 45px rgba(15, 23, 42, 0.7);
+      position: relative;
+      overflow: hidden;
+      transition: transform 140ms ease-out, box-shadow 140ms ease-out,
+        border-color 140ms ease-out, background 140ms ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 65px rgba(15, 23, 42, 0.9);
+      border-color: rgba(129, 140, 248, 0.6);
+      background: radial-gradient(circle at 90% 0, rgba(56, 189, 248, 0.2), transparent 70%),
+        var(--card-bg);
+    }
+
+    .card-pill {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #a5b4fc;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-icon {
+      font-size: 0.9rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-body {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .card-meta span {
+      opacity: 0.9;
+    }
+
+    .card-meta-highlight {
+      color: #a5b4fc;
+      font-weight: 500;
+    }
+
+    .card-corner {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.3), transparent 60%);
+      top: -60px;
+      right: -60px;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.2rem;
+    }
+
+    .about-text {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .about-text p + p {
+      margin-top: 0.75rem;
+    }
+
+    .about-list {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      list-style: none;
+    }
+
+    .about-list li {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-list-bullet {
+      font-size: 1rem;
+      transform: translateY(2px);
+    }
+
+    .about-panel {
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.1rem 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at 0 0, rgba(37, 99, 235, 0.25), transparent 70%),
+        rgba(15, 23, 42, 0.94);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.85);
+    }
+
+    .about-panel-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .about-highlight {
+      margin-top: 0.85rem;
+      font-size: 0.78rem;
+      color: #a5b4fc;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 0 0, rgba(236, 72, 153, 0.35), transparent 70%),
+        var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 140ms ease-out, box-shadow 140ms ease-out,
+        border-color 140ms ease-out, background 140ms ease-out;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(248, 113, 113, 0.75);
+      background: radial-gradient(circle at 100% 0, rgba(244, 114, 182, 0.25), transparent 70%),
+        var(--card-bg);
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.95);
+    }
+
+    .project-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-body {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .project-meta {
+      font-size: 0.78rem;
+      color: #a5b4fc;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 0 0, rgba(45, 212, 191, 0.25), transparent 70%),
+        rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 1.3rem 1.3rem 1.4rem;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.95);
+    }
+
+    .contact-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card-body {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+    }
+
+    label {
+      color: #cbd5f5;
+    }
+
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 0.85rem;
+      border-radius: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.55rem 0.7rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 140ms ease-out, box-shadow 140ms ease-out,
+        background 140ms.ease-out;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(56, 189, 248, 0.9);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.9);
+      background: rgba(15, 23, 42, 0.98);
+    }
+
+    .contact-side {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-side-block {
+      padding: 1rem 1rem 1.1rem;
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-side-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #a5b4fc;
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-side-value {
+      font-size: 0.9rem;
+    }
+
+    .contact-side-value a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 2px;
+    }
+
+    .contact-note {
+      font-size: 0.78rem;
+      color: #a5b4fc;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 1.4rem 0 2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+    }
+
+    /* ================= ANIMATION HELPERS ================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 500ms ease-out, transform 500ms ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-layout,
+      .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .section-header {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .navbar-inner {
+        padding-inline: 1rem;
+      }
+
+      .nav-links,
+      .nav-btn {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links-mobile.show {
+        display: flex;
+      }
+
+      .hero {
+        padding: 2.6rem 0 3.3rem;
+      }
+
+      section {
+        padding: 2.3rem 0 2.8rem;
+      }
+
+      .services-grid,
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header>
-    <img src="assets/logo.png" alt="Narayani Logo" class="logo" />
-    <nav>
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="#home" class="brand">
+        <div class="brand-logo">
+          <div class="brand-logo-inner">NT</div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">NTechIT Services</span>
+          <span class="brand-tagline">Pune-based • Serving clients worldwide</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#projects">Case Studies</a>
+        <a href="#contact">Contact</a>
+        <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          <span>WhatsApp Consultation</span>
+          <span class="btn-icon">↗</span>
+        </button>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <div class="nav-toggle-line"></div>
+        <div class="nav-toggle-line"></div>
+        <div class="nav-toggle-line"></div>
+      </button>
+    </div>
+
+    <nav class="nav-links-mobile" id="mobileNav">
       <a href="#services">Services</a>
       <a href="#about">About</a>
-      <a href="#testimonials">Testimonials</a>
+      <a href="#projects">Case Studies</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
-  <section class="hero">
-    <h1>Tech Support That Works When You Need It Most.</h1>
-    <p>Fast, reliable, and affordable IT solutions for homes, startups, and small businesses in India.</p>
-    <div class="cta-buttons">
-      <a href="#contact" class="btn">Request a Free Consultation</a>
-      <a href="#contact" class="btn secondary">Chat with a Tech Expert Now</a>
-    </div>
-  </section>
-  <section id="services" class="section">
-    <h2>Our Services</h2>
-    <div class="service-grid">
-      <div class="service-card">
-        <img src="assets/icons/remote.svg" alt="Remote Support" />
-        <h3>Remote Support</h3>
-        <ul>
-          <li>PC/laptop troubleshooting</li>
-          <li>Software updates</li>
-          <li>Virus removal</li>
-        </ul>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section id="home" class="hero">
+      <div class="wrapper">
+        <div class="hero-inner">
+          <div class="hero-left reveal">
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              <span>Pune-based ERP & Cloud solutions for businesses across the globe</span>
+            </div>
+            <h1 class="hero-title">
+              <span class="accent">ERP Solutions</span> & Cloud Consultation
+            </h1>
+            <p class="hero-subtitle">
+              NTechIT Services, based in Pune (India), helps businesses worldwide design,
+              build, and host reliable ERP systems and cloud infrastructure — with a focus
+              on minimal cost and maximum uptime.
+            </p>
+
+            <div class="hero-tags">
+              <span class="hero-tag">ERP Development & Hosting</span>
+              <span class="hero-tag">Cloud Consultation</span>
+              <span class="hero-tag">ERP at Minimal Cost</span>
+              <span class="hero-tag">IT Infra & Repairs</span>
+              <span class="hero-tag">React UI Development</span>
+            </div>
+
+            <div class="hero-actions">
+              <button
+                class="btn-primary"
+                onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+              >
+                <span>Request a free ERP consultation</span>
+                <span class="btn-icon">✨</span>
+              </button>
+              <button
+                class="btn-ghost"
+                onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})"
+              >
+                <span>View all services</span>
+                <span class="btn-icon">↓</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="hero-glow"></div>
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <div class="hero-card-title">
+                  <span class="hero-card-dot"></span>
+                  <span>NTechIT ERP Blueprint</span>
+                </div>
+                <span class="hero-card-env">Cost-Optimised Stack</span>
+              </div>
+              <div class="hero-card-body">
+                <div class="hero-orbit">
+                  <div class="hero-orbit-dot"></div>
+                </div>
+                <div class="code-line">
+                  <span class="code-key">location</span>
+                  <span> = </span>
+                  <span class="code-string">"Pune, India → Global clients"</span>
+                </div>
+                <div class="code-line">
+                  <span class="code-key">stack</span>
+                  <span> = </span>
+                  <span class="code-string">
+                    ["React", "Node.js", "PostgreSQL", "Docker", "Cloud"]
+                  </span>
+                </div>
+                <div class="code-line">
+                  <span class="code-key">services</span>
+                  <span> = </span>
+                  <span class="code-string">
+                    ["ERP Dev", "Hosting", "Cloud", "Infra", "Support"]
+                  </span>
+                </div>
+                <div class="code-line">
+                  <span class="code-key">goal</span>
+                  <span> = </span>
+                  <span class="code-string">
+                    "Minimal cost, maximum reliability"
+                  </span>
+                </div>
+                <div class="code-line code-comment">
+                  # From requirements to live ERP in production, end-to-end.
+                </div>
+
+                <div class="hero-card-badges">
+                  <span class="hero-badge">📊 ERP Implementation</span>
+                  <span class="hero-badge">☁️ Cloud Migration</span>
+                  <span class="hero-badge">💸 Cost Optimisation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="service-card">
-        <img src="assets/icons/network.svg" alt="Network" />
-        <h3>Network Services</h3>
-        <ul>
-          <li>Wi-Fi setup</li>
-          <li>Router config</li>
-          <li>Network security</li>
-        </ul>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section id="services">
+      <div class="wrapper">
+        <div class="section-header reveal">
+          <div class="section-title-wrap">
+            <span class="section-kicker">Services</span>
+            <h2 class="section-title">What NTechIT Services can do for you</h2>
+          </div>
+          <p class="section-subtitle">
+            End-to-end ERP and IT services — from planning and development to hosting,
+            cloud consultation, infra optimisation, repairs, and modern UI development
+            for clients in India and across the globe.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card reveal">
+            <div class="card-corner"></div>
+            <div class="card-pill">
+              <span class="card-icon">📊</span>
+              <span>ERP development & hosting</span>
+            </div>
+            <h3 class="card-title">ERP solutions designed around your business</h3>
+            <p class="card-body">
+              Custom ERP development that fits your processes instead of forcing you to change.
+              Includes secure hosting, monitoring, and performance tuning at a minimal cost.
+            </p>
+            <p class="card-meta">
+              <span class="card-meta-highlight">Deliverables:</span>
+              Requirement analysis, ERP modules, integrations, cost-optimised hosting.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-corner"></div>
+            <div class="card-pill">
+              <span class="card-icon">🏗️</span>
+              <span>IT infrastructure consultation</span>
+            </div>
+            <h3 class="card-title">Stable on-prem & hybrid IT setups</h3>
+            <p class="card-body">
+              Audit your existing infra, remove bottlenecks, and design reliable networks,
+              storage, and compute with clear documentation and upgrade roadmaps.
+            </p>
+            <p class="card-meta">
+              <span class="card-meta-highlight">Focus:</span>
+              Scalability, security, backup, and disaster recovery for SMEs.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-corner"></div>
+            <div class="card-pill">
+              <span class="card-icon">☁️</span>
+              <span>Cloud consultation</span>
+            </div>
+            <h3 class="card-title">Move to cloud without overspending</h3>
+            <p class="card-body">
+              Choose the right cloud, size your resources correctly, and set up CI/CD,
+              monitoring, and backup — with a clear monthly cost estimate.
+            </p>
+            <p class="card-meta">
+              <span class="card-meta-highlight">Platforms:</span>
+              AWS, Azure, GCP & private cloud.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-corner"></div>
+            <div class="card-pill">
+              <span class="card-icon">🧰</span>
+              <span>IT repairs & support</span>
+            </div>
+            <h3 class="card-title">Hands-on debugging & repair</h3>
+            <p class="card-body">
+              Diagnose and fix system issues, improve performance, and reduce downtime
+              with clear steps and preventive recommendations for your team.
+            </p>
+            <p class="card-meta">
+              <span class="card-meta-highlight">Ideal for:</span>
+              Offices and shops needing a trusted tech partner.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-corner"></div>
+            <div class="card-pill">
+              <span class="card-icon">⚛️</span>
+              <span>React UI development</span>
+            </div>
+            <h3 class="card-title">Modern dashboards & web apps</h3>
+            <p class="card-body">
+              Build responsive React dashboards, admin panels, and portals that connect
+              with your ERP and backend systems for real-time data.
+            </p>
+            <p class="card-meta">
+              <span class="card-meta-highlight">Extras:</span>
+              Design systems, reusable components, and performance audits.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-corner"></div>
+            <div class="card-pill">
+              <span class="card-icon">🧩</span>
+              <span>End-to-end ERP delivery</span>
+            </div>
+            <h3 class="card-title">From idea to live ERP system</h3>
+            <p class="card-body">
+              Combine ERP development, cloud, infra, and UI into one engagement. NTechIT
+              Services acts as a single technical partner, so you have one point of contact.
+            </p>
+            <p class="card-meta">
+              <span class="card-meta-highlight">Collaboration:</span>
+              With your in-house team or as a standalone delivery partner.
+            </p>
+          </article>
+        </div>
       </div>
-      <div class="service-card">
-        <img src="assets/icons/cloud.svg" alt="Cloud" />
-        <h3>Cloud & Backup</h3>
-        <ul>
-          <li>Google Workspace</li>
-          <li>Cloud integration</li>
-          <li>Data recovery</li>
-        </ul>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about">
+      <div class="wrapper">
+        <div class="section-header reveal">
+          <div class="section-title-wrap">
+            <span class="section-kicker">About</span>
+            <h2 class="section-title">About NTechIT Services</h2>
+          </div>
+        </div>
+
+        <div class="about-layout">
+          <div class="about-text reveal">
+            <p>
+              NTechIT Services is a Pune-based IT consulting and development company
+              focused on practical, affordable ERP and IT solutions for small and medium
+              businesses in India and worldwide.
+            </p>
+            <p>
+              Instead of pushing complex tools, we design systems that match how your team
+              actually works. From ERP development and cloud consultation to IT infra,
+              repairs, and React-based dashboards, the goal is simple: give you reliable
+              systems at minimal cost, no matter where your business is located.
+            </p>
+            <ul class="about-list">
+              <li>
+                <span class="about-list-bullet">✅</span>
+                <span>End-to-end ownership — from requirements to go-live and support.</span>
+              </li>
+              <li>
+                <span class="about-list-bullet">✅</span>
+                <span>Comfortable with both new systems and upgrading existing setups.</span>
+              </li>
+              <li>
+                <span class="about-list-bullet">✅</span>
+                <span>Cost-first approach — optimising infrastructure and licensing spend.</span>
+              </li>
+            </ul>
+          </div>
+
+          <aside class="about-panel reveal">
+            <h3 class="about-panel-title">Tech stack & tools</h3>
+            <div class="chips">
+              <span class="chip">ERP Design & Development</span>
+              <span class="chip">React / Next.js</span>
+              <span class="chip">Node.js / Express</span>
+              <span class="chip">PostgreSQL / MySQL</span>
+              <span class="chip">REST / APIs</span>
+              <span class="chip">Linux servers</span>
+              <span class="chip">Docker / Containers</span>
+              <span class="chip">Cloud platforms</span>
+              <span class="chip">CI/CD pipelines</span>
+              <span class="chip">Monitoring & backups</span>
+            </div>
+            <p class="about-highlight">
+              Every project is tailored — tools and architecture are selected based on
+              your budget, team skills, and growth plan, whether you’re in Pune or
+              anywhere else in the world.
+            </p>
+          </aside>
+        </div>
       </div>
-      <div class="service-card">
-        <img src="assets/icons/business.svg" alt="Business IT" />
-        <h3>Business IT</h3>
-        <ul>
-          <li>IT consultation</li>
-          <li>Upgrades</li>
-          <li>Maintenance plans</li>
-        </ul>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects">
+      <div class="wrapper">
+        <div class="section-header reveal">
+          <div class="section-title-wrap">
+            <span class="section-kicker">Case studies</span>
+            <h2 class="section-title">Sample work & outcomes</h2>
+          </div>
+          <p class="section-subtitle">
+            Replace these examples with your own real projects. They are written to match
+            NTechIT’s focus on ERP and cost-effective cloud solutions for businesses of
+            different sizes and locations.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div>
+              <h3 class="project-title">ERP for manufacturing unit</h3>
+              <p class="project-body">
+                Designed and implemented a custom ERP for inventory, production, and billing.
+                Deployed on a cost-optimised cloud setup with automated backup and monitoring.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">ERP</span>
+                <span class="project-tag">PostgreSQL</span>
+                <span class="project-tag">Cloud</span>
+              </div>
+            </div>
+            <p class="project-meta">Result: manual reporting reduced by ~60%.</p>
+          </article>
+
+          <article class="project-card reveal">
+            <div>
+              <h3 class="project-title">Infra audit & cost optimisation</h3>
+              <p class="project-body">
+                Reviewed existing servers, network, and backup strategy, then consolidated
+                services and removed unused resources to cut costs while improving reliability.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Infrastructure</span>
+                <span class="project-tag">Cost optimisation</span>
+                <span class="project-tag">Security</span>
+              </div>
+            </div>
+            <p class="project-meta">Result: infra incidents dropped and monthly costs reduced.</p>
+          </article>
+
+          <article class="project-card reveal">
+            <div>
+              <h3 class="project-title">React dashboard on top of ERP</h3>
+              <p class="project-body">
+                Built a React-based operations dashboard that connects to the client’s ERP,
+                showing real-time orders, stock, and basic analytics for managers.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">React</span>
+                <span class="project-tag">ERP Integration</span>
+                <span class="project-tag">Dashboard</span>
+              </div>
+            </div>
+            <p class="project-meta">Result: team gets instant visibility without Excel exports.</p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
-  <section id="about" class="section">
-    <h2>About Us</h2>
-    <p>
-      At Narayani Tech & IT Services, we combine technical expertise with a genuine commitment to people. Our mission is to make IT support stress-free and accessible—so individuals and small businesses can thrive in the digital world.
-    </p>
-  </section>
-  <section id="testimonials" class="section">
-    <h2>Client Testimonials</h2>
-    <blockquote>"Working with Narayani Tech & IT Services has been a truly outstanding experience. 
-      As a growing small business, we needed a reliable partner to help us build and secure our end-to-end network infrastructure — and they delivered beyond expectations. 
-      Their team responded swiftly, executed everything with precision, and provided exceptional support throughout the process. 
-      Thanks to their expertise, our systems are now running smoother, faster, and more securely than ever before. 
-      We’re incredibly grateful for their professionalism and dedication. Highly recommended!" — Team Dream Delicious
-    </blockquote>
-  </section>
-  <section id="contact" class="section contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Request</button>
-    </form>
-    <div class="contact-details">
-      <p><strong>Email:</strong> contact@ntechit.in</p>
-      <p><strong>Phone:</strong> +91-9403688906</p>
-      <a href="https://wa.me/919403688906?text=Hi%2C%20I%20need%20IT%20support%20from%20Narayani%20Tech" target="_blank" rel="noopener">Chat Now</a>
-</a>
-    </div>
-  </section>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact">
+      <div class="wrapper">
+        <div class="section-header reveal">
+          <div class="section-title-wrap">
+            <span class="section-kicker">Contact</span>
+            <h2 class="section-title">Start your ERP & IT discussion</h2>
+          </div>
+          <p class="section-subtitle">
+            Share a few details about your ERP or IT requirement. NTechIT Services will
+            respond with clarifications, timelines, and a rough plan — whether you’re
+            in Pune, elsewhere in India, or anywhere in the world.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <div class="contact-card reveal">
+            <h3 class="contact-card-title">Project enquiry</h3>
+            <p class="contact-card-body">
+              Use this form to ask about ERP development, cloud consultation, IT infra,
+              IT repairs, or React UI. You can also request a free discovery call.
+            </p>
+
+            <!-- Replace the action with your own form handler (e.g. Formspree, backend API) -->
+            <form action="#" method="post">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your full name" required />
+              </div>
+
+              <div class="field">
+                <label for="email">Work email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="you@company.com"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="company">Company / organisation</label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  placeholder="Optional but helpful"
+                />
+              </div>
+
+              <div class="field">
+                <label for="type">What do you need help with?</label>
+                <select id="type" name="type">
+                  <option value="erp">ERP development & hosting</option>
+                  <option value="cloud">ERP + cloud consultation</option>
+                  <option value="infra">IT infrastructure consultation</option>
+                  <option value="repairs">IT repairs & support</option>
+                  <option value="react">React UI / dashboards</option>
+                  <option value="other">A combination / something else</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="message">Project details</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Briefly describe your current setup, issues, and goals..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary">
+                <span>Send enquiry</span>
+                <span class="btn-icon">📨</span>
+              </button>
+            </form>
+          </div>
+
+          <aside class="contact-side reveal">
+            <div class="contact-side-block">
+              <div class="contact-side-label">Direct contact</div>
+              <div class="contact-side-value">
+                <div>
+                  Email:
+                  <a href="mailto:narayanitechitservices@gmail.com">
+                    narayanitechitservices@gmail.com
+                  </a>
+                </div>
+                <div>
+                  WhatsApp:
+                  <a href="https://wa.me/919403688906" target="_blank" rel="noopener">
+                    +91-9403688906
+                  </a>
+                </div>
+                <div>
+                  Website:
+                  <a href="https://ntechit.in" target="_blank" rel="noopener">
+                    ntechit.in
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-side-block">
+              <div class="contact-side-label">Typical ERP engagement</div>
+              <div class="contact-side-value">
+                Requirements & process study → Solution design → Development & testing →
+                Hosting & go-live → Training & ongoing support.
+              </div>
+            </div>
+
+            <p class="contact-note">
+              Even if you’re just exploring options or have a very small requirement,
+              you can still reach out — NTechIT Services will suggest the simplest path.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
   <footer>
-    <p>&copy; 2025 Narayani Tech & IT Services</p>
+    <div class="wrapper footer-inner">
+      <span>© <span id="year"></span> NTechIT Services, Pune. Serving clients worldwide.</span>
+      <div class="footer-links">
+        <a href="#home">Top ↑</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="https://ntechit.in" target="_blank" rel="noopener">ntechit.in</a>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const mobileNav = document.getElementById("mobileNav");
+
+    if (navToggle && mobileNav) {
+      navToggle.addEventListener("click", () => {
+        mobileNav.classList.toggle("show");
+      });
+    }
+
+    // Active link highlighting
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a, .nav-links-mobile a");
+
+    function setActiveLink() {
+      let current = "";
+      const scrollY = window.pageYOffset;
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 120;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (current && link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", setActiveLink);
+    window.addEventListener("load", setActiveLink);
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    revealEls.forEach((el) => observer.observe(el));
+
+    // Footer year
+    const yearEl = document.getElementById("year");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
 </body>
 </html>
