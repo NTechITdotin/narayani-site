@@ -504,44 +504,58 @@
     </section>
   </main>
 
-  <script>
-    const GOOGLE_SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbyKx42M9u-FdZ8KFAx0vcYR-cQH2WEQACEVvNseVwpt6JmkrsTwXhJEoC7rprffohAV/exec";
+ <script>
+  const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbyKx42M9u-FdZ8KFAx0vcYR-cQH2WEQACEVvNseVwpt6JmkrsTwXhJEoC7rprffohAV/exec";
 
-    const form = document.querySelector("form");
+  const form = document.querySelector("form");
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-      const btn = form.querySelector("button");
-      btn.disabled = true;
-      btn.innerText = "Sending...";
+    const btn = form.querySelector("button");
+    btn.disabled = true;
+    btn.innerText = "Sending...";
 
-      const formData = new FormData(form);
+    const formData = new FormData(form);
 
-      fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        body: formData
+    // ✅ REQUIRED FIELD VALIDATION (ADD THIS)
+    const name = formData.get("name")?.trim();
+    const email = formData.get("email")?.trim();
+    const company = formData.get("company")?.trim();
+    const message = formData.get("message")?.trim();
+
+    if (!name || !email || !company || !message) {
+      alert("Please fill in all required fields.");
+      btn.disabled = false;
+      btn.innerText = "Send enquiry";
+      return;
+    }
+
+    // 🚀 SUBMIT ONLY IF VALID
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      body: formData
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "success") {
+          alert("Thank you! Your enquiry has been sent.");
+          form.reset();
+        } else {
+          alert("Submission blocked or failed.");
+        }
       })
-        .then(res => res.json())
-        .then(data => {
-          if (data.status === "success") {
-            alert("Thank you! Your enquiry has been sent.");
-            form.reset();
-          } else {
-            alert("Submission blocked or failed.");
-          }
-        })
-        .catch(err => {
-          console.error(err);
-          alert("Something went wrong. Please try again.");
-        })
-        .finally(() => {
-          btn.disabled = false;
-          btn.innerText = "Send enquiry";
-        });
-    });
-  </script>
+      .catch(err => {
+        console.error(err);
+        alert("Something went wrong. Please try again.");
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.innerText = "Send enquiry";
+      });
+  });
+</script>
   <!-- ================= FOOTER ================= -->
   <footer>
     <div class="wrapper footer-inner">
